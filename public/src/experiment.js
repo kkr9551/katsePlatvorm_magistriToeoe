@@ -135,7 +135,7 @@ const timeline_var_round_3_J = [
  //create a welcome screen
 const welcomeScreen = {
     type: jsPsychHtmlButtonResponse,
-    stimulus: '<p>Tere osalemast katses!</p>',
+    stimulus: '<p>Tänan osalemast katses!</p>',
     choices: ['Jätka'],
 
 }
@@ -297,7 +297,7 @@ const pause2_5_J = {
     trial_duration: 300000,
     show_countdown_trial_duration: true,
     show_finished_button: true,
-    finnished_button_label: "Lõpeta pausi ja jätka"
+    finnished_button_label: "Lõpeta paus ja jätka"
 }*/
 
 const testProcedure_3_J = {
@@ -462,7 +462,7 @@ const pause1_5_S = {
     trial_duration: 300000,
     show_countdown_trial_duration: true,
     show_finished_button: true,
-    finished_button_label: "Lõpeta pausi ja jätka",
+    finished_button_label: "Lõpeta paus ja jätka",
     countdown_timer_html: '<span id="sketchpad-timer"></span> järelejäänud'
 }
 
