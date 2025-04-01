@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finish page</title>
+    <script src="../../jspsych/dist/plugin-html-keyboard-response.js"></script>
+    <script src="../../jspsych/dist/jspsych.js"></script>
+    <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../../jspsych/dist/jspsych.css" type="text/css">
+</head>
+<body>
+    
+</body>
+<script>
+    const jsPsych = initJsPsych({
+        
+    })
+
+    const end_block = {
+        data: {
+            screen_id: "end_exp"
+        },
+        type: jsPsychHtmlKeyboardResponse,
+        stimulus: "Your data has been saved. <p>You can now close this screen</p>"
+    };
+
+    jsPsych.run(end_block);
+</script>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "jspsych",
+  "version": "1.0.0",
+  "description": "![jspsych logo](http://www.jspsych.org/7.0/img/jspsych-logo.jpg)",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
