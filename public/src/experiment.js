@@ -194,13 +194,19 @@ const instruction_junior = {
     html: `
         <div style="width: 880px; padding: 20px; border: solid black 2px; font-size: 20px">
             <h3>Hea arstiteaduse tudeng,</h3>
-            <p>Katse koosneb kahest osast, proovikatsetest ja katsetest. Proovikatse sisaldab kaks proovi. Proovikatse käigus saate katseläbiviijalt küsida kõike, mis jääb teile segaseks. Katseläbiviija aitab teil oma ülesandeid täielikult mõista. Seetõttu pole tarvis harjutuste lõpetamisega kiirustada.<p/> 
-            <p>Katse sisaldab kolm osa. Iga osa lõpetamise järel on viieminutiline paus, mille jooksul saab puhata ja vett juua.</p>
+            <p>Tere tulemast keeleteaduslikule katsele meditsiiniliste terminite kasutamisest!</p>
+            <p>Katse koosneb kahest osast, proovikatsest näidisülesannetega ja katsest. Proovikatse sisaldab kahte näidisülesannet. Selle käigus saad katse läbiviijalt küsida kõike, mis jääb sulle segaseks. Katse läbiviija aitab selgitada katset ja ülesandeid. Seetõttu pole tarvis vastuste esitamisega kiirustada.<p/> 
+            <p>Katse sisaldab kolme blokki. Igas blokis on 10 ülesannet, kokku on 30. Iga bloki lõpetamise järel võid teha kuni viieminutilise pausi, mille jooksul saab puhata, sirutada ja vett juua.</p>
             <p>Teie ülesandeks on</p>
             <ul>
-                <li>kuulata hoolega heli, mis algab teatud mõistele viitava sõnaga nt <i>maksapõletik on ...</i> . Peale selle on heli sisuks selle mõiste kirjeldus kolme lause raames (umbes 20-25 sekundit);</li>
-                <li>Rääkides, määrata selle mõiste viitava sõna kindlaks ja rääkida valjusti, mida sa kuulsid, niipea kui heli lõpeb. Heli lõppemise signaaliks on kaks ekraanile ilmuvat küsimust <i>„Millist mõistet kirjeldati? Mida kuulsite?“</i>;</li>
-                <li>Jätkamiseks klõpsake nuppu „Lõpeta“, kui olete veendunud, et olete sõna valimise ja kuuldu kirjeldamise lõpetanud.</li>
+                <li>kuulata tähelepanelikult helisalvestist (umbes 20-25 sekundit), milles nimetatakse ja kirjeldatakse mõnda meditsiinilist mõistet;</li>
+                <li>Vastata suuliselt kahe küsimusele:
+                    <ul>
+                        <li>„Millist mõistet kirjeldati? Nimeta kirjeldatud mõiste ühe sõnaga.“</li>
+                        <li>„Mida kuulsite? Tee 1-2 lauseline kokkuvõte sellest kirjeldusest.“</li>
+                    </ul>
+                </li>
+                <li>Jätkamiseks klõpsake nuppu „Lõpeta“, kui oled veendunud, et oled kuuldu kirjeldamise lõpetanud.</li>
             </ul>
         </div>
     `,
@@ -213,7 +219,7 @@ const openMic_J = {
 
 const beforePractice_J = {
     type: jsPsychHtmlButtonResponse,
-    stimulus: '<p>On aeg end proovide kaudu oma ülesannetega kurssi viia. Pakutakse kaks proovi. Alustamiseks klõpsake.</p>',
+    stimulus: '<p>On aeg end proovide kaudu oma ülesannetega kurssi viia. Proovikatse sisaldab kahte ülesannet. Alustamiseks klõpsa.</p>',
     choices: ['Jätka']
 }
 
@@ -227,8 +233,8 @@ const practiceTrial_J = {
 const practiceTrialResponse_J = {
     type: jsPsychHtmlAudioResponse,
     stimulus: `
-        <p>Millist mõistet kirjeldati?</p>
-        <p>Mida kuulsite?</p>
+        <p><b>Millist mõistet kirjeldati?</b> Nimeta kirjeldatud mõiste ühe sõnaga.</p>
+        <p><b>Mida kuulsite?</b> Tee 1-2 lauseline kokkuvõte sellest kirjeldusest.</p>
     `,
     recording_duration: 360000,
     show_done_button: true,
@@ -245,7 +251,7 @@ const practiceProcedure_J = {
 
 const beforeTest_J = {
     type: jsPsychHtmlButtonResponse,
-    stimulus: '<p>On aeg alustada katsetega. Katse sisaldab kolm osa ja osade vahel on kaks pausi. Iga osa käigus ei saa te peatuda, lõppenud osa juurde tagasi minna ega eelmises tulemuses muudatusi teha. klõpsake alustamiseks nuppu.</p>',
+    stimulus: '<p>On aeg alustada katsetega. Katse sisaldab kolme blokki ja blokkide vahel on kaks pausi. Iga osa käigus ei saa peatuda, lõppenud bloki juurde tagasi minna ega eelmises tulemuses muudatusi teha. klõpsa alustamiseks nuppu.</p>',
     choices: ['Jätka']
 }
 
@@ -259,8 +265,8 @@ const audioTrial_J = {
 const audioResponse_J = {
     type: jsPsychHtmlAudioResponse,
     stimulus: `
-        <p><b>Millist mõistet kirjeldati?</b></p>
-        <p><b>Mida kuulsite?</b></p>
+        <p><b>Millist mõistet kirjeldati?</b> Nimeta kirjeldatud mõiste ühe sõnaga.</p>
+        <p><b>Mida kuulsite?</b> Tee 1-2 lauseline kokkuvõte sellest kirjeldusest.</p>
     `,
     recording_duration: 360000,
     show_done_button: true,
@@ -277,12 +283,15 @@ const testProcedure_1_J = {
 
 const pause1_5_J = {
     type: jsPsychSketchpad,
-    prompt: '<p>Nüüd on teil viieminutiline paus. Tulge tagasi enne pausi lõppu. Saate selle pausi vahele jätta ja jätkata, klõpsates nuppu.</p>',
+    prompt: '<p>Nüüd on sull viieminutiline paus. Tule tagasi enne pausi lõppu. Saab selle pausi vahele jätta ja jätkata, klõpsates nuppu.</p>',
     trial_duration: 300000,
-    show_countdown_trial_duration: true,
+    show_countdown_trial_duration: false,
     show_finished_button: true,
     finished_button_label: "Lõpeta pausi ja jätka",
-    countdown_timer_html: '<span id="sketchpad-timer"></span> järelejäänud'
+    //countdown_timer_html: '<span id="sketchpad-timer"></span> järelejäänud'
+    show_clear_button: false,
+    show_undo_button: false,
+    show_redo_button: false,
 }
 
 const testProcedure_2_J = {
@@ -326,7 +335,7 @@ const timeline_branch_J = [
 
 const choice_Trial = {
     type: jsPsychHtmlKeyboardResponse,
-    stimulus: '<p>Sisestage oma osaleja koodi viimane täht, vajutades klahvi <b>s</b> või <b>j</b>.</p>',
+    stimulus: '<p>Sisesta oma osaleja koodi viimane täht, vajutades klahvi <b>s</b> või <b>j</b>.</p>',
     choices: ['j','s'],
     on_finish: (data) => {
         switch(data.response) {
@@ -375,13 +384,19 @@ const instruction_senior = {
     html: `
         <div style="width: 880px; padding: 20px; border: solid black 2px; font-size: 20px">
             <h3>Hea arstiteaduse tudeng,</h3>
-            <p>Katse koosneb kahest osast, proovikatsetest ja katsetest. Proovikatse sisaldab kaks proovi. Proovikatse käigus saate katseläbiviijalt küsida kõike, mis jääb teile segaseks. Katseläbiviija aitab teil oma ülesandeid täielikult mõista. Seetõttu pole tarvis harjutuste lõpetamisega kiirustada.<p/> 
-            <p>Katse sisaldab kolm osa. Iga osa lõpetamise järel on viieminutiline paus, mille jooksul saab puhata ja vett juua.</p>
-            <p>Teie ülesandeks on</p>
+            <p>Tere tulemast keeleteaduslikule katsele meditsiiniliste terminite kasutamisest!</p>
+            <p>Katse koosneb kahest osast, proovikatsest näidisülesannetega ja katsest. Proovikatse sisaldab kakte näidisülesannet. Proovikatse käigus saad katse läbiviijalt küsida kõike, mis jääb sulle segaseks. Katse läbiviija aitab selgitada katset ja ülesandeid. Seetõttu pole tarvis vastuste esitamisega kiirustada.<p/> 
+            <p>Katse sisaldab kolme blokki. Igas blokis on 10 ülesannet, kokku on 30. Iga bloki lõpetamise järel võid teha kuni viieminutilise pausi, mille jooksul saab puhata, sirutada ja vett juua.</p>
+            <p>Sinu ülesandeks on</p>
             <ul>
-                <li>kuulata hoolega heli, mis algab kahe sama mõistele viitava sõnaga <b>„A ehk B“</b> struktuuris nt <i>maksapõletik ehk hepatiit</i> või <i>hepatiit ehk maksapõletik</i>. Peale selle on heli sisuks selle mõiste kirjeldus kolme lause raames (umbes 20-25 sekundit);</li>
-                <li>Rääkides, teha kahe sõna vahel sõnavalik ja rääkida valjusti, mida sa kuulsid, niipea kui heli lõpeb. Heli lõppemise signaaliks on kaks ekraanile ilmuvat küsimust <i>„Millist mõistet kirjeldati? Mida kuulsite?“</i>;</li>
-                <li>Jätkamiseks klõpsake nuppu „Lõpeta“, kui olete veendunud, et olete sõna valimise ja kuuldu kirjeldamise lõpetanud.</li>
+                <li>kuulata tähelepanelikult helisalvestist (umbes 20-25 sekundit), milles nimetatakse ja kirjeldatakse mõnda meditsiinilist mõistet;</li>
+                <li>Vastata suuliselt küsimustele, mis ilmuvad ekraanile:
+                    <ul>
+                        <li>„Millist mõistet kirjeldati? Nimeta kirjeldatud mõiste ainult ühe sõnaga.“</li>
+                        <li>„Mida kuulsite? Tee 1-2 lauseline kokkuvõte sellest kirjeldusest.“</li>
+                    </ul>
+                </li>
+                <li>Jätkamiseks klõpsa nuppu „Lõpeta“, kui oled veendunud, et oled kuuldu kirjeldamise lõpetanud.</li>
             </ul>
         </div>
     `,
@@ -394,7 +409,7 @@ const openMic_S = {
 
 const beforePractice_S = {
     type: jsPsychHtmlButtonResponse,
-    stimulus: '<p>On aeg end proovide kaudu oma ülesannetega kurssi viia. Pakutakse kaks proovi. Alustamiseks klõpsake.</p>',
+    stimulus: '<p>On aeg end proovide kaudu oma ülesannetega kurssi viia. Proovikatse sisaldab kahte näidisülesannet. Alustamiseks klõpsa.</p>',
     choices: ['Jätka']
 }
 
@@ -408,8 +423,8 @@ const practiceTrial_S = {
 const practiceTrialResponse_S = {
     type: jsPsychHtmlAudioResponse,
     stimulus: `
-        <p><b>Millist mõistet kirjeldati?</b></p>
-        <p><b>Mida kuulsid?</b></p>
+        <p><b>Millist mõistet kirjeldati?</b> Nimeta kirjeldatud mõiste ainult ühe sõnaga.</p>
+        <p><b>Mida kuulsid?</b> Tee 1-2 lauseline kokkuvõte sellest kirjeldusest.</p>
     `,
     recording_duration: 360000,
     show_done_button: true,
@@ -426,7 +441,7 @@ const practiceProcedure_S = {
 
 const beforeTest_S = {
     type: jsPsychHtmlButtonResponse,
-    stimulus: '<p>On aeg alustada katsetega. Katse sisaldab kolm osa ja osade vahel on kaks pausi. Iga osa käigus ei saa te peatuda, lõppenud osa juurde tagasi minna ega eelmises tulemuses muudatusi teha. klõpsake alustamiseks nuppu.</p>',
+    stimulus: '<p>On aeg alustada katsetega. Katse sisaldab kolme blokki ja blokkide vahel on kaks pausi. Iga osa käigus ei saa peatuda, lõppenud osa juurde tagasi minna ega eelmises tulemuses muudatusi teha. klõpsa alustamiseks nuppu.</p>',
     choices: ['Jätka']
 }
 
@@ -440,8 +455,8 @@ const audioTrial_S = {
 const audioResponse_S = {
     type: jsPsychHtmlAudioResponse,
     stimulus: `
-        <p><b>Millist mõistet kirjeldati?</b></p>
-        <p><b>Mida kuulsid?</b></p>
+        <p><b>Millist mõistet kirjeldati?</b> Nimeta kirjeldatud mõiste ainult ühe sõnaga.</p>
+        <p><b>Mida kuulsid?</b> Tee 1-2 lauseline kokkuvõte sellest kirjeldusest.</p>
     `,
     recording_duration: 360000,
     show_done_button: true,
@@ -458,12 +473,15 @@ const testProcedure_1 = {
 
 const pause1_5_S = {
     type: jsPsychSketchpad,
-    prompt: '<p>Nüüd on teil viieminutiline paus. Tulge tagasi enne pausi lõppu. Saate selle pausi vahele jätta ja jätkata, klõpsates nuppu.</p>',
+    prompt: '<p>Nüüd on sul viieminutiline paus. Tule tagasi enne pausi lõppu. Saab selle pausi vahele jätta ja jätkata, klõpsates nuppu.</p>',
     trial_duration: 300000,
-    show_countdown_trial_duration: true,
+    show_countdown_trial_duration: false,
     show_finished_button: true,
     finished_button_label: "Lõpeta paus ja jätka",
-    countdown_timer_html: '<span id="sketchpad-timer"></span> järelejäänud'
+    //countdown_timer_html: '<span id="sketchpad-timer"></span> järelejäänud',
+    show_clear_button: false,
+    show_undo_button: false,
+    show_redo_button: false,
 }
 
 const testProcedure_2 = {
